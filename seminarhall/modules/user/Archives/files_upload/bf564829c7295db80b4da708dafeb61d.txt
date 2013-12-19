@@ -1,0 +1,211 @@
+-- phpMyAdmin SQL Dump
+-- version 3.2.0.1
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Oct 29, 2009 at 04:51 PM
+-- Server version: 5.1.37
+-- PHP Version: 5.3.0
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+--
+-- Database: `ooad`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `circular`
+--
+
+CREATE TABLE IF NOT EXISTS `circular` (
+  `cid` int(2) NOT NULL AUTO_INCREMENT,
+  `cname` varchar(50) NOT NULL,
+  `ctype` varchar(30) NOT NULL,
+  `Cicular_feature` varchar(1000) NOT NULL,
+  PRIMARY KEY (`cid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `circular`
+--
+
+INSERT INTO `circular` (`cid`, `cname`, `ctype`, `Cicular_feature`) VALUES
+(1, 'Csharp.doc', 'committee', 'this circular is especially used for class comittee meeting.This template gives u all basic options of reason,faculty sign and representtive signature.'),
+(2, 'workshop1', 'seminar', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `faculty`
+--
+
+CREATE TABLE IF NOT EXISTS `faculty` (
+  `facultyid` int(3) NOT NULL AUTO_INCREMENT,
+  `fname` varchar(20) NOT NULL,
+  `rank` int(3) NOT NULL,
+  `mailid` varchar(30) NOT NULL,
+  PRIMARY KEY (`facultyid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=44 ;
+
+--
+-- Dumping data for table `faculty`
+--
+
+INSERT INTO `faculty` (`facultyid`, `fname`, `rank`, `mailid`) VALUES
+(1, 'Bhaskaran', 0, 'bhaskar@phy.annauniv.edu'),
+(25, 'Ranjani P', 1, 'ranjani@gmail.com'),
+(24, 'Doreen', 2, 'doreen@gmail.com'),
+(40, 'Vijayashree', 2, 'viji.m@gmail.com'),
+(37, 'NA', 0, 'NA'),
+(9, 'Saswathi Mukherjee', 0, 'saswati@gmail.com'),
+(39, 'bama', 3, 'chorse@somemail.com'),
+(38, 'Rajeshwari', 0, 'rajimam@gmail.com'),
+(41, 'Shiloah', 2, 'shiloah@gmail.com'),
+(42, 'Thangaraj', 2, 'thangam@gmail.com'),
+(33, 'praveen', 3, 'prawinkumar7@gmail.com'),
+(2, 'chellapan', 0, 'chellapan@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `login`
+--
+
+CREATE TABLE IF NOT EXISTS `login` (
+  `username` varchar(40) NOT NULL,
+  `password` varchar(40) NOT NULL,
+  `facultyid` int(3) NOT NULL,
+  `timeoflogin` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`username`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `login`
+--
+
+INSERT INTO `login` (`username`, `password`, `facultyid`, `timeoflogin`) VALUES
+('saswathi', 'distributed', 9, '0000-00-00 00:00:00'),
+('bhaskaran', 'softeng', 1, '0000-00-00 00:00:00'),
+('doreen', 'csharp', 24, '0000-00-00 00:00:00'),
+('vijim', 'dbms', 40, NULL),
+('ranjani', 'parthasarathy', 25, '0000-00-00 00:00:00'),
+('rajeshwari', 'algo', 38, NULL),
+('bama', 'ceglug', 39, NULL),
+('shilo', 'lab', 41, NULL),
+('thangaraj', 'networks', 42, '2009-10-07 03:36:23'),
+('HOD', 'cse', 2, '2009-10-13 16:05:55'),
+('praveen', 'anbesivam', 33, '2009-10-15 10:05:34');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mailer`
+--
+
+CREATE TABLE IF NOT EXISTS `mailer` (
+  `mid` int(40) NOT NULL AUTO_INCREMENT,
+  `mtime` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `from` varchar(40) NOT NULL,
+  `to` varchar(40) NOT NULL,
+  `subject` varchar(100) DEFAULT NULL,
+  `day` int(2) NOT NULL,
+  `month` varchar(4) NOT NULL,
+  `year` int(5) NOT NULL,
+  `hour` int(2) NOT NULL,
+  `type` varchar(50) NOT NULL,
+  `comments` varchar(200) DEFAULT NULL,
+  `class` varchar(20) DEFAULT NULL,
+  `semid` int(2) NOT NULL,
+  `status` int(1) NOT NULL,
+  PRIMARY KEY (`mid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COMMENT='This table is the main table for MAILS' AUTO_INCREMENT=81 ;
+
+--
+-- Dumping data for table `mailer`
+--
+
+INSERT INTO `mailer` (`mid`, `mtime`, `from`, `to`, `subject`, `day`, `month`, `year`, `hour`, `type`, `comments`, `class`, `semid`, `status`) VALUES
+(6, '2009-08-30 00:29:36', 'praveen', 'HOD', 'Seminar lab', 5, '12', 2009, 5, 'General', 'text', 'BE MCA', 0, 1),
+(7, '2009-08-30 00:30:01', 'sorna', 'HOD', 'what one', 3, '4', 2009, 7, 'Committee', 'tesfg adsaa ', 'be mca', 1, 1),
+(8, '2009-08-30 02:49:38', 'ranjani', 'HOD', 'TGMC meet', 4, '11', 2009, 4, 'Specialised', 'This is a message', 'MCA ME', 2, 0),
+(9, '2009-09-01 05:27:27', 'bama', 'HOD', 'CEGLUG', 3, 'Apr', 2009, 4, 'Specialised', 'A brainstorm', 'be mca', 3, 0),
+(10, '2009-10-07 03:34:56', 'rajeshwari', 'vijim', 'Test', 30, '11', 2009, 4, 'Discussion', 'Hey I want to confirm the date and time :)', 'mca', 3, 0),
+(48, '2009-10-26 16:19:18', 'HOD', 'ranjani', ' reply: TGMC-meet', 16, '10', 2008, 1, 'Committee', 'ya it is possible', 'BE MCA', 1, 0),
+(74, '2009-10-26 23:55:04', 'bama', 'HOD', ' committee', 30, '11', 2009, 4, 'General', 'class committee for 4th sem', 'ME', 4, 1),
+(75, '2009-10-27 09:00:58', 'bama', 'HOD', ' INSIGHT meet', 30, '10', 2009, 4, 'Specialised', 'Insight brainstorm', 'BE', 1, 1),
+(76, '2009-10-27 09:19:24', 'bama', 'saswathi', ' verification', 30, '10', 2009, 4, 'Discussion', 'verification of class committee', 'ME', 3, 0),
+(80, '2009-10-29 16:44:55', 'bhaskar', 'HOD', ' Check', 9, '10', 2009, 2, 'General', 'Checking', 'BE MCA', 1, 0),
+(73, '2009-10-26 23:16:48', 'bama', 'vijim', 'Invitation', 31, '10', 2009, 2, 'Discussion', 'welcome you for he insight meeting', 'BE', 6, 1),
+(72, '2009-10-26 23:13:08', 'bama', 'ranjani', ' success', 31, '10', 2009, 1, 'Discussion', 'insight was a great success', 'BE', 1, 1),
+(77, '2009-10-29 16:40:18', 'bhaskar', 'HOD', ' TGMC-meet', 30, '10', 2009, 2, 'Specialized', 'Planning to meet a TGMC meet .', 'BE MCA', 1, 0),
+(78, '2009-10-29 16:40:18', 'bhaskar', 'HOD', ' TGMC-meet', 30, '10', 2009, 3, 'Specialized', 'Planning to meet a TGMC meet .', 'BE MCA', 1, 0),
+(79, '2009-10-29 16:43:58', 'bhaskar', 'ranjani', ' verification', 30, '10', 2009, 1, 'Committee', 'verifying if seminar hall is free', 'BE', 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `results`
+--
+
+CREATE TABLE IF NOT EXISTS `results` (
+  `bookingid` int(10) NOT NULL AUTO_INCREMENT,
+  `meet_name` varchar(100) NOT NULL,
+  `noattended` int(3) NOT NULL,
+  `results` tinyint(1) NOT NULL,
+  `comments` varchar(400) NOT NULL,
+  PRIMARY KEY (`bookingid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `results`
+--
+
+INSERT INTO `results` (`bookingid`, `meet_name`, `noattended`, `results`, `comments`) VALUES
+(1, '5thsem-class comitee', 178, 1, 'IT WAS A REAL SUCCESS...'),
+(2, '3rd sem syllabus meet', 201, 0, 'it didnt come dat fine..');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `seminarhall`
+--
+
+CREATE TABLE IF NOT EXISTS `seminarhall` (
+  `hallno` int(3) NOT NULL AUTO_INCREMENT,
+  `acpresent` int(1) NOT NULL,
+  `fans` int(2) NOT NULL,
+  `chairs` int(3) NOT NULL,
+  `systems` int(4) NOT NULL,
+  `projectors` int(2) NOT NULL,
+  PRIMARY KEY (`hallno`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `seminarhall`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `status`
+--
+
+CREATE TABLE IF NOT EXISTS `status` (
+  `bookid` int(11) NOT NULL,
+  `hallno` int(11) NOT NULL,
+  `session` int(11) NOT NULL,
+  `fid` int(11) NOT NULL,
+  `consent` int(11) NOT NULL,
+  PRIMARY KEY (`bookid`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `status`
+--
+
+INSERT INTO `status` (`bookid`, `hallno`, `session`, `fid`, `consent`) VALUES
+(1, 1, 3, 101, 1),
+(2, 1, 4, 102, 0);

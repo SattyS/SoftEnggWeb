@@ -1,0 +1,21 @@
+1)Install wamp software provided which is your server.
+
+2)Place the given seminarhall project in wamp/www/
+
+3)start the apache server if it is already not started and type http://localhost/ to view the wamp environment.
+
+4)http://localhost/seminarhall will start the seminarhall website server.
+
+5)http://localhost/phpmyadmin will open the database part.Import the given Database_New.txt here.
+
+6)once the Database_New.txt is imported you are done and client can view the celluloid solutions webpage.
+
+Note for administrator:
+
+1)http://localhost/seminarhall/modules/admin
+
+2)The file storoge is in seminarhall/modules/user/Archives/files_storage and seminarhall/modules/user/Archives/files_upload
+
+
+
+Have a nice day!! Enjoy Celluloid solutions.

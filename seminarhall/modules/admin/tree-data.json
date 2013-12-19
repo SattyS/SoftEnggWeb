@@ -1,0 +1,9 @@
+[{
+    text:'Administrate',
+    expanded: true,
+    children:[{
+        text:'Add Faculty',
+        id:'add-faculty',
+        leaf:true
+	}]
+}]

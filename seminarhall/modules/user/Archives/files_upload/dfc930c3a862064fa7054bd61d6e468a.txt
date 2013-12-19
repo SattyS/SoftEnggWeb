@@ -1,0 +1,13 @@
+ <?php
+				if( strcmp($us,"HOD") == 0 ){
+			?>
+            <td><?php echo $row['status']; ?></td>
+            <?php
+				}
+				else
+				{
+			?>
+            <td><?php echo $row['status']; ?></td>
+            <?php
+				}
+			?>     
